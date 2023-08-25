@@ -161,6 +161,8 @@ async function getPushSubscription(
     return subscription;
   }
 
+  await swRegistration.serviceWorker.ready;
+
   return swRegistration.pushManager.subscribe({
     userVisibleOnly: true,
     // Chrome <= 75 doesn't support base64-encoded VAPID key. For backward compatibility, VAPID key
